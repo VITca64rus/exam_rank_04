@@ -80,11 +80,11 @@ int main(int ac, char **av, char **env) {
 		i = init_list(&list, av, i);
 		if (strcmp(av[start], "cd") == 0) {
 			if (i - start != 2)
-				write(2, "error: cd: bad arguments\n", 25);
+				write(1, "error: cd: bad arguments\n", 25);
 			else if (chdir(list.av[1]) < 0) {
-				write(2, "error: cd: cannot change directory to ", 38);
-				write(2, list.av[1], ft_strlen(list.av[1]));
-				write(2, "\n", 1);
+				write(1, "error: cd: cannot change directory to ", 38);
+				write(1, list.av[1], ft_strlen(list.av[1]));
+				write(1, "\n", 1);
 			}
 		}
 		else if (i > start)
